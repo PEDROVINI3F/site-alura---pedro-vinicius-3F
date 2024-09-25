@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>A Aventura do Mapa Perdido</title>
+</head>
+<body>
+    <main>
+        <div class="passo ativo" id="passo-0">
+            <img src="img/cenario-passo0.png" alt="">
+            <p>Em um dia comum no mercado de uma cidade litorânea, um velho marinheiro entrega um pergaminho antigo dizendo: "Este é o mapa de um tesouro perdido. A aventura começa agora!" Você decide seguir o mapa.</p>
+            <button class="btn-proximo" data-proximo="1">Aceitar a missão</button>
+            <button class="btn-proximo" data-proximo="2">Ignorar o marinheiro</button>
+        </div>
+
+        <div class="passo" id="passo-1">
+            <p>Você leva o mapa para casa e, sabendo que não poderá decifrá-lo sozinho, pede ajuda à sua amiga Sofia, especialista em línguas antigas. Após horas de estudo, ela descobre que a primeira pista está no farol nas montanhas próximas.</p>
+            <button class="btn-proximo" data-proximo="3">Seguir para o farol</button>
+            <button class="btn-proximo" data-proximo="4">Desistir e voltar para casa</button>
+        </div>
+
+        <div class="passo" id="passo-2">
+            <p>Você decide ignorar a história do marinheiro e continuar sua vida, mas sempre se pergunta o que teria acontecido se tivesse aceitado a missão.</p>
+        </div>
+
+        <div class="passo" id="passo-3">
+            <p>No farol, ao pôr do sol, um raio de luz ilumina uma rocha específica. Ao investigá-la, você encontra uma coordenada que aponta para uma ilha no mar. A próxima pista está lá.</p>
+            <button class="btn-proximo" data-proximo="5">Procurar um barco</button>
+        </div>
+
+        <div class="passo" id="passo-4">
+            <img src="img/cenario-passo4-voltar-casa.png" alt="imagem voltando para casa e desistindo da aventura">
+            <p>Você decide que a aventura é grande demais e volta para casa, mas sempre se pergunta o que teria encontrado.</p>
+        </div>
+
+        <div class="passo" id="passo-5">
+            <p>Você encontra o capitão Jonas, que aceita levá-lo até as coordenadas, mas avisa sobre os perigos no mar. Durante a viagem, uma tempestade surge e o barco é desviado. Porém, ao amanhecer, a misteriosa Ilha da Serpente aparece no horizonte.</p>
+            <button class="btn-proximo" data-proximo="6">Explorar a ilha</button>
+        </div>
+
+        <div class="passo" id="passo-6">
+            <p>Na Ilha da Serpente, você entra em uma selva densa e percebe que está em um labirinto natural. Cada vez que escolhe o caminho errado, sente o chão vibrar. De repente, uma serpente gigante aparece.</p>
+            <button class="btn-proximo" data-proximo="7">Tentar encontrar a saída</button>
+            <button class="btn-proximo" data-proximo="8">Enfrentar a serpente</button>
+        </div>
+
+        <div class="passo" id="passo-7">
+            <p>Você consegue encontrar uma pedra em forma de coração no chão. Ao tocá-la, a serpente recua, revelando uma caverna oculta. Lá dentro, você encontra um baú com um novo mapa indicando que o verdadeiro tesouro está mais profundo na ilha.</p>
+            <button class="btn-proximo" data-proximo="9">Seguir para a caverna</button>
+        </div>
+
+        <div class="passo" id="passo-8">
+            <p>Você tenta enfrentar a serpente, mas ela é muito poderosa. Você foge para o início do labirinto, onde decide procurar uma saída alternativa. A aventura continua.</p>
+            <button class="btn-proximo" data-proximo="6">Tentar outro caminho</button>
+        </div>
+
+        <div class="passo" id="passo-9">
+            <p>Dentro da caverna, você resolve uma série de enigmas e evita armadilhas antigas. Finalmente, chega a uma sala iluminada por cristais, onde um baú de ouro reluz. Ao lado do baú, uma inscrição diz: "O verdadeiro tesouro é a sabedoria adquirida na jornada."</p>
+            <button class="btn-proximo" data-proximo="10">Aceitar a sabedoria como o verdadeiro tesouro</button>
+        </div>
+
+        <div class="passo" id="passo-10">
+            <img src="img/cenario-passo11-cidade-perdida.png" alt="encontrando uma cidade maravilhosa perdida no Amazonas">
+            <p>Ao aceitar a mensagem, você decide se dedicar a preservar o conhecimento e os segredos da ilha para as gerações futuras, sabendo que a aventura em si foi o maior prêmio.</p>
+        </div>
+    </main>
+    <script>
+        const avanca = document.querySelectorAll('.btn-proximo');
+
+        avanca.forEach(button => {
+            button.addEventListener('click', function(){
+                const atual = document.querySelector('.ativo');
+                const proximoPasso = 'passo-' + this.getAttribute('data-proximo');
+
+                atual.classList.remove('ativo');
+                document.getElementById(proximoPasso).classList.add('ativo');
+            })
+        });
+    </script>
+</body>
+</html>
